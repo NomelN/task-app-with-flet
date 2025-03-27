@@ -1,0 +1,46 @@
+[
+    {
+        "label": "python",
+        "done": true
+    },
+    {
+        "label": "javascript",
+        "done": false
+    },
+    {
+        "label": "java",
+        "done": false
+    },
+    {
+        "label": "rust",
+        "done": false
+    },
+    {
+        "label": "go",
+        "done": false
+    },
+    {
+        "label": "react",
+        "done": false
+    },
+    {
+        "label": "vue.js",
+        "done": false
+    },
+    {
+        "label": "django",
+        "done": true
+    },
+    {
+        "label": "fastapi",
+        "done": true
+    },
+    {
+        "label": "flask",
+        "done": true
+    },
+    {
+        "label": "nodejs",
+        "done": false
+    }
+]
