@@ -2,25 +2,37 @@ import flet as ft
 
 
 def main(page: ft.Page):
-    counter = ft.Text("0", size=50, data=0)
+    page.title = "Task App"
+    page.vertical_aligment = ft.MainAxisAlignment.START # type: ignore
 
-    def increment_click(e):
-        counter.data += 1
-        counter.value = str(counter.data)
-        counter.update()
+    tasks = []
 
-    page.floating_action_button = ft.FloatingActionButton(
-        icon=ft.Icons.ADD, on_click=increment_click
+    def add_task(e):
+        if task_input.value:
+            new_task = ft.Checkbox(label=task_input.value)
+            tasks.append(new_task)
+            task_list.controls.append(new_task)
+            task_input.value = ""
+            page.update()
+
+    # Champ de saisie
+    task_input = ft.TextField(
+        label="Nouvelle tâche",
+        hint_text="Entrez une nouvelle tâche",
+        on_submit=add_task,
+        expand=True,
     )
+
+    # Bouton d'ajout
+    add_button = ft.ElevatedButton(text="Ajouter", on_click=add_task, bgcolor="green", color="white")
+
+    # Liste des tâches
+    task_list = ft.Column()
+
+    # Ajout des éléments à la page
     page.add(
-        ft.SafeArea(
-            ft.Container(
-                counter,
-                alignment=ft.alignment.center,
-            ),
-            expand=True,
-        )
+        ft.Row([task_input, add_button]),
+        task_list,
     )
 
-
-ft.app(main)
+ft.app(target=main)
